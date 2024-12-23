@@ -1,0 +1,23 @@
+step-1 client/user
+
+step-2 clients send many request
+
+step-3  that request goes under event queue
+
+step-4  that event queue send all the request to event loop but one by one - and it is first come first serve  
+
+step-5 it(event loop) check that request is blocking operation that is nothink but sync and non blocking operation that is Async 
+
+step-6 if its non blocking operation then it proces .that generated respose send to client back 
+
+step-7 or if its blocking the that request goes under thread pool 
+(thread pool is contain multiple threads okay and we can assume that thread is worker which do work for us)
+imp - threads are limited
+
+step-8 suppos we write  blocking code okay and there are many user which are visiting our site but we have limited number o thread suppose 
+ suppos we have 4 thread
+
+ step-9 1st user send request so 1 thread is asign to that user like this all thread will asign for 1st 4 user then what about others they will be in waiting 
+ because after compliting task then only thread can take the next user request it which very much time cansuming and also me be our site will be crash
+
+ step-10  so its good to write code in non blocking 
